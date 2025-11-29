@@ -3,24 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get catted</title>
+    <title>Image with Confetti</title>
     <style>
         body {
             margin: 0;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            background-color: #f0f0f0;
         }
         img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 80%;
+            max-height: 60%;
             object-fit: contain;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <!-- Replace the src with your image URL or path -->
+    <!-- Replace with your image -->
     <img src="https://a0.anyrgb.com/pngimg/572/1144/ripndip-cat-ripndip-middle-finger-guest-human-skeleton-polyvinyl-chloride-decal-whiskers-small-to-medium-sized-cats-glass.png" alt="My Image">
+    <button id="confettiBtn">Click me</button>
+
+    <!-- Include canvas-confetti via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        const button = document.getElementById('confettiBtn');
+
+        button.addEventListener('click', () => {
+            // Fire confetti
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        });
+    </script>
 </body>
 </html>
